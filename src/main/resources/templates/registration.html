@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Login Form with validation Example</title>
+	<link th:href="@{/styles/loginAndRegistrationStyle.css}" rel="stylesheet" />
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="registration-form-wrap">
+	<form th:action="@{/login}">
+		<input id="registration_exit" type="submit" value="X"/>
+	</form>
+	<h2>Регистрация</h2>
+	<form id="registration-form">
+		<p>
+			<input type="text" id="text" name="name" placeholder="Имя" required><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<input type="tel" id="phone" name="phone" placeholder="Номер телефона"
+				   pattern="(^8|7|\+7)((\d{10})|(\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}))" maxLength="12" required><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<input type="password" id="password" name="password" placeholder="Пароль" required><i class="validation"><span></span><span></span></i>
+		</p>
+		<p>
+			<input type="submit" id="register" value="Зарегистрироваться">
+		</p>
+	</form>
+</div><!--login-form-wrap-->
+<!-- partial -->
+
+</body>
+</html>

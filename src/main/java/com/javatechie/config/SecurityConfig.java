@@ -24,15 +24,6 @@ public class SecurityConfig {
     @Bean
     //authentication
     public UserDetailsService userDetailsService() {
-//        UserDetails admin = User.withUsername("Basant")
-//                .password(encoder.encode("Pwd1"))
-//                .roles("ADMIN")
-//                .build();
-//        UserDetails user = User.withUsername("John")
-//                .password(encoder.encode("Pwd2"))
-//                .roles("USER","ADMIN","HR")
-//                .build();
-//        return new InMemoryUserDetailsManager(admin, user);
         return new UserInfoUserDetailsService();
     }
 
@@ -40,9 +31,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/main/auth","/main/create/user").permitAll()
+                .requestMatchers("/auth","/create/user").permitAll()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/main/**")
+                .authorizeHttpRequests().requestMatchers("/**")
                 .authenticated().and().formLogin().and().build();
     }
 

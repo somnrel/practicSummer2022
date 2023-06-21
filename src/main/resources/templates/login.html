@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Login Form with validation Example</title>
+    <link th:href="@{/styles/loginAndRegistrationStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div id="login-form-wrap">
+        <h2>Авторизация</h2>
+        <div th:if="${param.error}">
+            Неверный номер телефона или пароль
+        </div>
+        <div th:if="${param.logout}">
+            Вы вышли из системы
+        </div>
+        <form th:action="@{/login}" method="post" id="login-form">
+            <p>
+                <input type="tel" id="phone" name="username" placeholder="Номер телефона"
+                   pattern="(^8|7|\+7)((\d{10})|(\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}))" maxLength="12" required><i
+                class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="password" id="password" name="password" placeholder="Пароль" required><i
+                class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <div><input type="submit" id="enter" value="Войти"/></div>
+            </p>
+        </form>
+        <div id="create-account-wrap">
+            <p><a th:href="@{/registration}">Создать аккаунт</a><p>
+        </div><!--create-account-wrap-->
+    </div><!--login-form-wrap-->
+<!-- partial -->
+
+</body>
+</html>

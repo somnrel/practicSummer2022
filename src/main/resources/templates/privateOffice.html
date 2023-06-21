@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Login Form with validation Example</title>
+    <link th:href="@{/styles/loginAndRegistrationStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="account-form-wrap" >
+    <form th:action="@{/logout}" method="post">
+        <input id="account_exit" type="submit" value="X"/>
+    </form>
+    <h2>Личный кабинет</h2>
+        <div class="block1">
+            <pre>Ваши данные</pre>
+            <p>
+                <input th:placeholder="${login}" disabled required>
+            </p>
+            <p>
+                <input th:placeholder="${name}" disabled required>
+            </p>
+            <p>
+                <input th:placeholder="${lastname}" disabled required>
+            </p>
+            <p>
+                <input th:placeholder="${email}" disabled required>
+            </p>
+        </div>
+        <div class="block2">
+            <pre>Транзакции по карте</pre>
+            <nav>
+                <ul>
+                    <li>Link 1</li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
+                    <li>Link 4</li>
+                    <li>Link 5</li>
+                    <li>Link 6</li>
+                    <li>Link 7</li>
+                    <li>Link 8</li>
+                    <li>Link 9</li>
+                    <li>Link 10</li>
+                    <li>Link 11</li>
+                    <li>Link 13</li>
+                    <li>Link 13</li>
+                </ul>
+            </nav>
+        </div>
+</div><!--login-form-wrap-->
+<!-- partial -->
+
+</body>
+</html>
+
+
+
+
+</body>
+</html>
+
+
