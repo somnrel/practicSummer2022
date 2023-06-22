@@ -25,13 +25,11 @@ public class ProductController {
     AuthenticationProvider authenticationProvider;
     @Autowired
     private UserService service;
-
     @Autowired
     UserInfoRepository repository;
 
 
-
-    @RequestMapping("/hello")
+    @RequestMapping("/privateOffice")
     @ResponseBody
     public ModelAndView welcome(Principal principal){
         ModelAndView modelAndView = new ModelAndView();
@@ -52,7 +50,13 @@ public class ProductController {
     }
 
     @PostMapping("/create/user")
-    public String addNewUser(@RequestBody UserInfo userInfo){
+    public String addUser(@RequestBody UserInfo userInfo){
         return service.addUser(userInfo);
+    }
+
+    @PutMapping("/edit/user")
+    public String editUser(@RequestBody UserInfo userInfo){
+        Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return service.editUser(userInfo, ((UserInfoUserDetails) authentication).getUsername());
     }
 }

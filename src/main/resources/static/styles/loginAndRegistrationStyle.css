@@ -1,27 +1,28 @@
 body {
-  background-color: #9f9da7;
-  font-size: 1.3rem;
-  font-family: "Open Sans", sans-serif;
-  color: #2b3e51;
+    background-color: #9f9da7;
+    font-size: 1.3rem;
+    font-family: "Open Sans", sans-serif;
+    color: #2b3e51;
 }
 
 h2 {
-  font-weight: 300;
-  text-align: center;
+    font-weight: 300;
+    text-align: center;
 }
 
 p {
-  position: relative;
+    position: relative;
 }
 
 a,
 a:link,
 a:visited,
 a:active {
-  color: #3ca9e2;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    color: #3ca9e2;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
+
 a:focus, a:hover,
 a:link:focus,
 a:link:hover,
@@ -29,232 +30,268 @@ a:visited:focus,
 a:visited:hover,
 a:active:focus,
 a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 #login-form-wrap,
-#registration-form-wrap{
-  background-color: #fff;
-  width: 25%;
-  margin: 110px auto;
-  text-align: center;
-  padding: 20px 0 20px 0;
-  border-radius: 4px;
-  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+#registration-form-wrap {
+    background-color: #fff;
+    width: 25%;
+    margin: 110px auto;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-radius: 4px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
 }
 
 #login-form,
-#registration-form{
-  padding: 0 60px;
+#registration-form {
+    padding: 0 60px;
 }
 
 input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  outline: none;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 4px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
 }
 
 input[type="tel"],
 input[type="password"],
-input[type="text"]{
-  width: 100%;
-  padding: 0 0 0 10px;
-  margin: 0;
-  color: #8a8b8e;
-  border: 1px solid #c2c0ca;
-  font-style: normal;
-  font-size: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  display: inline-block;
-  background: none;
+input[type="text"] {
+    width: 100%;
+    padding: 0 0 0 10px;
+    margin-bottom: -10px;
+    color: #8a8b8e;
+    border: 1px solid #c2c0ca;
+    font-style: normal;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: none;
 }
+
 input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-color: #3ca9e2;
+    border-color: #3ca9e2;
 }
+
 input[type="tel"]:focus:invalid,
 input[type="text"]:focus:invalid,
 input[type="password"]:focus:invalid {
-  color: #cc1e2b;
-  border-color: #cc1e2b;
+    color: #cc1e2b;
+    border-color: #cc1e2b;
 }
+
 input[type="tel"]:valid ~ .validation,
 input[type="text"]:valid ~ .validation,
 input[type="password"]:valid ~ .validation {
-  display: block;
-  border-color: #0C0;
+    display: block;
+    border-color: #0C0;
 }
+
 input[type="tel"]:valid ~ .validation span,
 input[type="text"]:valid ~ .validation span,
 input[type="password"]:valid ~ .validation span {
-  background: #0C0;
-  position: absolute;
-  border-radius: 6px;
+    background: #0C0;
+    position: absolute;
+    border-radius: 6px;
 }
+
 input[type="tel"]:valid ~ .validation span:first-child,
 input[type="text"]:valid ~ .validation span:last-child,
 input[type="password"]:valid ~ .validation span:first-child {
-  top: 30px;
-  left: 14px;
-  width: 20px;
-  height: 3px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+    top: 30px;
+    left: 14px;
+    width: 20px;
+    height: 3px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
+
 input[type="tel"]:valid ~ .validation span:last-child,
 input[type="text"]:valid ~ .validation span:last-child,
 input[type="password"]:valid ~ .validation span:last-child {
-  top: 35px;
-  left: 8px;
-  width: 11px;
-  height: 3px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+    top: 35px;
+    left: 8px;
+    width: 11px;
+    height: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .validation {
-  display: none;
-  position: absolute;
-  content: " ";
-  height: 60px;
-  width: 30px;
-  right: 15px;
-  top: 0px;
+    display: none;
+    position: absolute;
+    content: " ";
+    height: 60px;
+    width: 30px;
+    right: 15px;
+    top: 0px;
 }
 
 input[type="submit"] {
-  border: none;
-  background-color: #3ca9e2;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: 18px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
+    border: none;
+    background-color: #3ca9e2;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
 }
 
 input[id="enter"] {
-  width: 50%;
+    width: 50%;
 
 }
 
 input[type="submit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    background-color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 #create-account-wrap {
-  background-color: #eeedf1;
-  color: #8a8b8e;
-  font-size: 14px;
-  width: 100%;
-  padding: 10px 0;
-  border-radius: 0 0 4px 4px;
+    background-color: #eeedf1;
+    color: #8a8b8e;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
 }
 
 
-#account-form-wrap{
-  background-color: #fff;
-  width: 60%;
-  margin: 110px auto;
-  text-align: center;
-  padding: 15px 80px 100px 40px;
-  border-radius: 4px;
-  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+#account-form-wrap {
+    background-color: #fff;
+    width: 60%;
+    margin: 110px auto;
+    text-align: center;
+    padding: 15px 80px 100px 40px;
+    border-radius: 4px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
 }
 
-#account-form-wrap{
-  height: 500px;
-  width: 1000px;
+#account-form-wrap {
+    height: 500px;
+    width: 1000px;
 }
 
 .block1 {
-  width: 50%;
-  float: left;
+    width: 50%;
+    float: left;
 }
 
 .block2 {
-  width: 50%;
-  float: right;
-}
-#button {
-  margin: 0px 1000px;
-text-decoration: none;
-  color: #2b3e51;
+    width: 50%;
+    float: right;
 }
 
 nav ul {
-  height:290px; width:100%;
+    height: 290px;
+    width: 100%;
 }
-nav ul{
-  overflow:hidden; overflow-y:scroll;
+
+nav ul {
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 input[id="account_exit"] {
-  border: none;
-  background-color: #3ca9e2;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: 18px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  line-height: normal;
-  margin: 0px 0px 0px 1030px;
+    border: none;
+    background-color: #3ca9e2;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: normal;
+    margin: 0px 0px 0px 1030px;
 
 }
 
 input[id="account_exit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    background-color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 input[id="registration_exit"] {
-  border: none;
-  background-color: #3ca9e2;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: 18px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  line-height: normal;
-  margin: 0px 0px 0px 400px;
+    border: none;
+    background-color: #3ca9e2;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: normal;
+    margin: 0px 0px 0px 400px;
 
 }
 
 input[id="registration_exit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    background-color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 
+input[type="userData"] {
+    font-size: 24px;
+}
+
+
+button {
+    position: relative;
+    left: 195px;
+    border: none;
+    background-color: white;
+    font-size: 30px;
+    top: 8px;
+}
+
+
+button:enabled {
+    cursor: pointer;
+}
+button:enabled:active {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.placeHolderColor::-webkit-input-placeholder {
+    color: blue;
+}
+
+.dataForm {
+    padding: 0 10px 0 10px;
+    border: solid;
+    border-width: 1px;
+}

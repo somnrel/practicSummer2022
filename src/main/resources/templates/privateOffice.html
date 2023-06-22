@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>HTML5 Login Form with validation Example</title>
     <link th:href="@{/styles/loginAndRegistrationStyle.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/src/test.js}"></script>
 </head>
 <body>
 <div id="account-form-wrap" >
@@ -13,23 +14,27 @@
     <h2>Личный кабинет</h2>
         <div class="block1">
             <pre>Ваши данные</pre>
-            <p>
-                <input th:placeholder="${login}" disabled required>
+            <div class="dataForm">
+                <button type="submit" th:action="@{/edit/user}" th:method="put" disabled id="save">✔</button>
+                <button type="submit" th:onclick="editUserInfo()" id="edit">✎</button>
+                <p>
+                <input th:placeholder="${login}" id="login" type="text" disabled required>
             </p>
             <p>
-                <input th:placeholder="${name}" disabled required>
+                <input th:placeholder="${name}" id="name" type="text" disabled required>
             </p>
             <p>
-                <input th:placeholder="${lastname}" disabled required>
+                <input th:placeholder="${lastname}" id="lastname" type="text" disabled required>
             </p>
             <p>
-                <input th:placeholder="${email}" disabled required>
+                <input th:placeholder="${email}" id="email" type="text" disabled required>
             </p>
+            </div>
         </div>
         <div class="block2">
             <pre>Транзакции по карте</pre>
             <nav>
-                <ul>
+                <ul style="list-style: none;">
                     <li>Link 1</li>
                     <li>Link 2</li>
                     <li>Link 3</li>
@@ -46,8 +51,7 @@
                 </ul>
             </nav>
         </div>
-</div><!--login-form-wrap-->
-<!-- partial -->
+</div>
 
 </body>
 </html>
