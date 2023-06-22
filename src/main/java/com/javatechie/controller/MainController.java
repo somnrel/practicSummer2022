@@ -7,8 +7,8 @@ import com.javatechie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +16,7 @@ import java.security.Principal;
 import java.util.Optional;
 
 @RestController
-public class ProductController {
+public class MainController {
 
     @Autowired
     UserDetailsService userDetailsService;
@@ -34,7 +34,7 @@ public class ProductController {
     public ModelAndView welcome(Principal principal){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("privateOffice");
-        Optional<UserInfo> userInfo = repository.findByName(principal.getName());
+        Optional<UserInfo> userInfo = repository.findUserInfoByLogin(principal.getName());
 
         if (userInfo.isPresent()){
             modelAndView.addObject("login", userInfo.get().getLogin());
@@ -58,5 +58,16 @@ public class ProductController {
     public String editUser(@RequestBody UserInfo userInfo){
         Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return service.editUser(userInfo, ((UserInfoUserDetails) authentication).getUsername());
+    }
+
+    @GetMapping("/login")
+    @ResponseBody
+    public ModelAndView getLogin(@RequestParam(value = "error", required = false) String error,
+                                 @RequestParam(value = "logout", required = false) String logout, Model model) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        modelAndView.addObject("error", error!=null);
+        modelAndView.addObject("logout", logout!=null);
+        return modelAndView;
     }
 }
