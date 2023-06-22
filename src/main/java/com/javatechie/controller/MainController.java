@@ -6,11 +6,13 @@ import com.javatechie.repository.UserInfoRepository;
 import com.javatechie.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.Optional;
@@ -31,18 +33,11 @@ public class MainController {
 
     @RequestMapping("/privateOffice")
     @ResponseBody
-    public ModelAndView welcome(Principal principal){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("privateOffice");
+    public Model privateOffice(Principal principal, Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<UserInfo> userInfo = repository.findUserInfoByLogin(principal.getName());
-
-        if (userInfo.isPresent()){
-            modelAndView.addObject("login", userInfo.get().getLogin());
-            modelAndView.addObject("name", userInfo.get().getName());
-            modelAndView.addObject("lastname", userInfo.get().getLastname());
-            modelAndView.addObject("email", userInfo.get().getEmail());
-        }
-        return modelAndView;
+        model.addAttribute("userInfo", userInfo.get());
+        return model;
     }
     @GetMapping("/auth")
     public String auth() {
@@ -54,10 +49,16 @@ public class MainController {
         return service.addUser(userInfo);
     }
 
-    @PutMapping("/edit/user")
-    public String editUser(@RequestBody UserInfo userInfo){
-        Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return service.editUser(userInfo, ((UserInfoUserDetails) authentication).getUsername());
+    @PostMapping("/editUser")
+    public RedirectView editUser(@ModelAttribute("userInfo") UserInfo userInfo, Model model, Principal principal){
+        Optional<UserInfo> userInfoByLogin = repository.findUserInfoByLogin(principal.getName());
+        userInfo.setPassword(userInfoByLogin.get().getPassword());
+        userInfo.setRoles(userInfoByLogin.get().getRoles());
+        service.editUser(userInfo, principal.getName());
+        UserInfoUserDetails forChangePrincipal = (UserInfoUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        forChangePrincipal.setName(userInfo.getLogin());
+        forChangePrincipal.setPassword(userInfo.getPassword());
+        return new RedirectView("privateOffice");
     }
 
     @GetMapping("/login")

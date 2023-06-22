@@ -12,23 +12,26 @@
         <input id="account_exit" type="submit" value="X"/>
     </form>
     <h2>Личный кабинет</h2>
+
         <div class="block1">
             <pre>Ваши данные</pre>
             <div class="dataForm">
-                <button type="submit" th:action="@{/edit/user}" th:method="put" disabled id="save">✔</button>
-                <button type="submit" th:onclick="editUserInfo()" id="edit">✎</button>
+                <form th:method="POST" th:action="@{/editUser}" th:object="${userInfo}">
+                <button type="submit" disabled id="save">✔</button>
+                <button th:onclick="editUserInfo()" id="edit">✎</button>
                 <p>
-                <input th:placeholder="${login}" id="login" type="text" disabled required>
+                <input id="login" type="text" th:field="*{login}" disabled required>
             </p>
             <p>
-                <input th:placeholder="${name}" id="name" type="text" disabled required>
+                <input id="name" type="text" th:field="*{name}" disabled required>
             </p>
             <p>
-                <input th:placeholder="${lastname}" id="lastname" type="text" disabled required>
+                <input id="lastname" type="text" th:field="*{lastname}" disabled required>
             </p>
             <p>
-                <input th:placeholder="${email}" id="email" type="text" disabled required>
+                <input id="email" type="email" th:field="*{email}" disabled required>
             </p>
+                </form>
             </div>
         </div>
         <div class="block2">

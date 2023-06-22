@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .requestMatchers("/auth","/create/user").permitAll()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/**")
-                .authenticated().and().formLogin().and().httpBasic().and().build();
+                .authenticated().and().formLogin().successForwardUrl("/privateOffice").and().httpBasic().and().build();
     }
 
     @Bean

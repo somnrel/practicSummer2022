@@ -30,6 +30,14 @@ public class UserInfoUserDetails implements UserDetails {
         return authorities;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getPassword() {
         return password;
