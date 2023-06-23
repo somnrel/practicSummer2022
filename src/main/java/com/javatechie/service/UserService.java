@@ -30,7 +30,6 @@ public class UserService {
             oldUser.get().setName(userInfo.getName());
             oldUser.get().setLastname(userInfo.getLastname());
             oldUser.get().setEmail(userInfo.getEmail());
-            oldUser.get().setPassword(passwordEncoder.encode(userInfo.getPassword()));
             repository.save(oldUser.get());
         }
         return "user edited";

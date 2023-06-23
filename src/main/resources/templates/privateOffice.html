@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML5 Login Form with validation Example</title>
-    <link th:href="@{/styles/loginAndRegistrationStyle.css}" rel="stylesheet"/>
-    <script type="text/javascript" th:src="@{/js/src/test.js}"></script>
+    <link th:href="@{/styles/styles.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/src/scripts.js}"></script>
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
 </head>
 <body>
-<div id="account-form-wrap" >
+<div id="account-form-wrap">
     <form th:action="@{/logout}" method="post">
         <input id="account_exit" type="submit" value="X"/>
     </form>
     <h2>Личный кабинет</h2>
 
-        <div class="block1">
-            <pre>Ваши данные</pre>
-            <div class="dataForm">
-                <form th:method="POST" th:action="@{/editUser}" th:object="${userInfo}">
+    <div class="block1">
+        <pre>Ваши данные</pre>
+        <div class="dataForm">
+            <form th:method="POST" th:action="@{/edit/user}" th:object="${userInfo}">
                 <button type="submit" disabled id="save">✔</button>
                 <button th:onclick="editUserInfo()" id="edit">✎</button>
+                <label for="login">Логин:</label>
                 <p>
-                <input id="login" type="text" th:field="*{login}" disabled required>
-            </p>
-            <p>
-                <input id="name" type="text" th:field="*{name}" disabled required>
-            </p>
-            <p>
-                <input id="lastname" type="text" th:field="*{lastname}" disabled required>
-            </p>
-            <p>
-                <input id="email" type="email" th:field="*{email}" disabled required>
-            </p>
-                </form>
-            </div>
+                    <input id="login" type="text" th:field="*{login}" disabled required>
+                </p>
+                <label for="name">Имя:</label>
+                <p>
+                    <input id="name" type="text" th:field="*{name}" disabled required>
+                </p>
+                <p>
+                    <label for="lastname">Фамилия:</label>
+                    <input id="lastname" type="text" th:field="*{lastname}" disabled required>
+                </p>
+                <label for="email">Email:</label>
+                <p>
+                    <input id="email" type="email" th:field="*{email}" disabled required>
+                </p>
+            </form>
         </div>
-        <div class="block2">
-            <pre>Транзакции по карте</pre>
-            <nav>
-                <ul style="list-style: none;">
-                    <li>Link 1</li>
-                    <li>Link 2</li>
-                    <li>Link 3</li>
-                    <li>Link 4</li>
-                    <li>Link 5</li>
-                    <li>Link 6</li>
-                    <li>Link 7</li>
-                    <li>Link 8</li>
-                    <li>Link 9</li>
-                    <li>Link 10</li>
-                    <li>Link 11</li>
-                    <li>Link 13</li>
-                    <li>Link 13</li>
-                </ul>
-            </nav>
-        </div>
+    </div>
+    <pre id="transactionsLabel">Транзакции по карте</pre>
+    <div class="block2">
+        <table>
+            <tr>
+                <th>Количество бонусов</th>
+                <th>Дата транзакции</th>
+            </tr>
+            <tr th:each="prod : ${transaction}">
+                <td th:text="${prod.amount}"></td>
+                <td th:text="${prod.transactionDate}"></td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 </body>

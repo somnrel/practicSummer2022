@@ -196,8 +196,22 @@ input[type="submit"]:hover {
 }
 
 .block2 {
-    width: 50%;
+    top: 18px;
+    position: relative;
     float: right;
+    overflow: auto;
+    height: 358px;
+}
+
+#transactionsLabel{
+    position: relative;
+    top: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
 }
 
 nav ul {
