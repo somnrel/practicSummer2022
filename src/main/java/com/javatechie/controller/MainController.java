@@ -72,7 +72,7 @@ public class MainController {
         UserInfoUserDetails forChangePrincipal = (UserInfoUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         forChangePrincipal.setName(userInfo.getLogin());
         forChangePrincipal.setPassword(userInfo.getPassword());
-        return new RedirectView("privateOffice");
+        return new RedirectView("/privateOffice");
     }
 
     @GetMapping
