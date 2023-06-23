@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,22 +39,15 @@ public class MainController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-
     @RequestMapping("/privateOffice")
     @ResponseBody
     public Model privateOffice(Principal principal, Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Optional<UserInfo> userInfo = userInfoRepository.findUserInfoByLogin(principal.getName());
         model.addAttribute("userInfo", userInfo.get());
-
-
         List<Transaction> transactionByUserId = (List<Transaction>) transactionalRepository.test(userInfo.get().getId());
         model.addAttribute("transaction", transactionByUserId);
         return model;
-    }
-    @GetMapping("/auth")
-    public String auth() {
-        return "Welcome this endpoint is not secure";
     }
 
     @PostMapping("/create/user")
@@ -73,11 +65,5 @@ public class MainController {
         forChangePrincipal.setName(userInfo.getLogin());
         forChangePrincipal.setPassword(userInfo.getPassword());
         return new RedirectView("/privateOffice");
-    }
-
-    @GetMapping
-    public Model getTransactions(Model model, Principal principal){
-
-        return model;
     }
 }

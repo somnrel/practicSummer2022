@@ -21,6 +21,5 @@ public class UserInfoUserDetailsService implements UserDetailsService {
         Optional<UserInfo> userInfo = repository.findUserInfoByLogin(login);
         return userInfo.map(UserInfoUserDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("user not found " + login));
-
     }
 }

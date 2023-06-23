@@ -14,9 +14,4 @@ public interface TransactionalRepository extends JpaRepository<Transaction, Inte
     @Query(value = "select * from auth.`transaction` t where users_id =:id", nativeQuery = true)
     Collection<Transaction> test(@Param("id") Integer id);
 
-//    Optional<Transaction> findTransactionByUserId(Integer id);
-
-    @Query(value = "select * from auth.`transaction`", nativeQuery = true)
-    Collection<Transaction> getAllTransactions();
-
 }

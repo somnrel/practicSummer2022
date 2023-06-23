@@ -35,22 +35,6 @@ a:active:hover {
     transition: all 0.2s ease;
 }
 
-#login-form-wrap,
-#registration-form-wrap {
-    background-color: #fff;
-    width: 25%;
-    margin: 110px auto;
-    text-align: center;
-    padding: 20px 0 20px 0;
-    border-radius: 4px;
-    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
-}
-
-#login-form,
-#registration-form {
-    padding: 0 60px;
-}
-
 input {
     display: block;
     box-sizing: border-box;
@@ -64,7 +48,7 @@ input {
 input[type="tel"],
 input[type="password"],
 input[type="text"],
-input[type="email"]{
+input[type="email"] {
     width: 320px;
     padding: 0 0 0 10px;
     margin-bottom: -10px;
@@ -130,15 +114,6 @@ input[type="password"]:valid ~ .validation span:last-child {
     transform: rotate(45deg);
 }
 
-.validation {
-    display: none;
-    position: absolute;
-    content: " ";
-    height: 60px;
-    width: 30px;
-    right: 15px;
-    top: 0px;
-}
 
 input[type="submit"] {
     border: none;
@@ -155,26 +130,11 @@ input[type="submit"] {
     text-align: center;
 }
 
-input[id="enter"] {
-    width: 50%;
-
-}
-
 input[type="submit"]:hover {
     background-color: #329dd5;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-
-#create-account-wrap {
-    background-color: #eeedf1;
-    color: #8a8b8e;
-    font-size: 14px;
-    width: 100%;
-    padding: 10px 0;
-    border-radius: 0 0 4px 4px;
-}
-
 
 #account-form-wrap {
     background-color: #fff;
@@ -204,7 +164,7 @@ input[type="submit"]:hover {
     height: 358px;
 }
 
-#transactionsLabel{
+#transactionsLabel {
     position: relative;
     top: 20px;
 }
@@ -214,26 +174,18 @@ label {
     width: 140px;
     text-align: right;
 }
-#tessst{
+
+#boxForUserData {
     top: 10px;
     margin-bottom: 30px;
     right: 45px;
     position: relative;
 }
-#test2{
+
+#labelForUserData {
     display: inline-block;
     width: 150px;
     text-align: right;
-}
-
-nav ul {
-    height: 290px;
-    width: 100%;
-}
-
-nav ul {
-    overflow: hidden;
-    overflow-y: scroll;
 }
 
 input[id="account_exit"] {
@@ -262,33 +214,6 @@ input[id="account_exit"]:hover {
     transition: all 0.2s ease;
 }
 
-input[id="registration_exit"] {
-    border: none;
-    background-color: #3ca9e2;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    font-size: 18px;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    line-height: normal;
-    margin: 0px 0px 0px 400px;
-
-}
-
-input[id="registration_exit"]:hover {
-    background-color: #329dd5;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-
-
 input[type="userData"] {
     font-size: 24px;
 }
@@ -303,10 +228,10 @@ button {
     top: 8px;
 }
 
-
 button:enabled {
     cursor: pointer;
 }
+
 button:enabled:active {
     background-color: lightgray;
     border-radius: 10px;
