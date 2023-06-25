@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -46,6 +48,8 @@ public class MainController {
         Optional<UserInfo> userInfo = userInfoRepository.findUserInfoByLogin(principal.getName());
         model.addAttribute("userInfo", userInfo.get());
         List<Transaction> transactionByUserId = (List<Transaction>) transactionalRepository.test(userInfo.get().getId());
+        Integer sum = transactionByUserId.stream().map(Transaction::getAmount).toList().stream().reduce(0, Integer::sum);
+        model.addAttribute("sumTransactions", sum);
         model.addAttribute("transaction", transactionByUserId);
         return model;
     }

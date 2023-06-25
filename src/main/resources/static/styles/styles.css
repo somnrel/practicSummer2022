@@ -161,7 +161,16 @@ input[type="submit"]:hover {
     position: relative;
     float: right;
     overflow: auto;
-    height: 358px;
+    height: 290px;
+}
+#sum{
+    position: relative;
+    top: 30px
+
+}
+#sumLabel{
+    position: relative;
+    top: 45px
 }
 
 #transactionsLabel {

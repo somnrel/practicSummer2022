@@ -45,12 +45,15 @@
                 <th>Количество бонусов</th>
                 <th>Дата транзакции</th>
             </tr>
-            <tr th:each="prod : ${transaction}">
-                <td th:text="${prod.amount}"></td>
-                <td th:text="${prod.transactionDate}"></td>
+            <tr th:each="transaction : ${transaction}">
+                <td th:text="${transaction.amount}"></td>
+                <td th:text="${transaction.transactionDate}"></td>
             </tr>
         </table>
+
     </div>
+    <label id="sumLabel" for="login">Текущий баланс:</label>
+    <input id="sum" th:attr="placeholder=${sumTransactions}" type="text" disabled required>
 </div>
 
 </body>
